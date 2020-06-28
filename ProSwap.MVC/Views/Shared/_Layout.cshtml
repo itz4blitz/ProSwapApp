@@ -3,37 +3,33 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - ProSwap.io - Gaming Marketplace</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/proswap.css" rel="stylesheet" type="text/css" />
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark text-capitalize clean-navbar">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <a class="navbar-brand logo" href="#" style="color: #fff;">ProSwap</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse d-xl-flex flex-row-reverse flex-grow-0 mx-auto align-items-xl-center" id="navcol-1">
+                <input class="search" type="text" placeholder="Search..">
+                <ul class="nav navbar-nav ml-auto">
+                    <li role="presentation" class="nav-item"><a class="nav-link active" href="#" style="color: #fff;">Home</a></li>
+                    <li role="presentation" class="nav-item"><a class="nav-link" href="#" style="color: #fff;">Marketplace</a></li>
+                    <li role="presentation" class="nav-item"><a class="nav-link" href="#" style="color: #fff;">FAQ</a></li>
+                    <li role="presentation" class="nav-item"><a class="nav-link" href="#" style="color: #fff;">Contact Us</a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+            </div><a href="#" style="padding: 10px;color: #fff;">Register</a><a href="#" style="padding: 10px;color: #fff;">Login</a>
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - ProSwap.io - Gaming Marketplace</p>
         </footer>
     </div>
 

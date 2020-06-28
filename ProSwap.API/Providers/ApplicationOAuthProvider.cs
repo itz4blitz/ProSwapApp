@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using ProSwap.API.Models;
+using ProSwap.Data;
 
 namespace ProSwap.API.Providers
 {

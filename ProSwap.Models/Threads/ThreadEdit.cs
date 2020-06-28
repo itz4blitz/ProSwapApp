@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProSwap.Models
 {
-    public class Class1
+    public class ThreadEdit
     {
+        public int ThreadID { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
     }
 }

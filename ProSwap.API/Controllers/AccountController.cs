@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using ProSwap.API.Models;
 using ProSwap.API.Providers;
 using ProSwap.API.Results;
+using ProSwap.Data;
 
 namespace ProSwap.API.Controllers
 {
