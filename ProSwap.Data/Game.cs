@@ -11,9 +11,9 @@ namespace ProSwap.Data
     {
         [Key]
         public int GameId { get; set; }
-
         [Required]
         public string Name { get; set; }
-
+        public string CurrencyName { get; set; }
+        public double CurrencyPriceUSD { get; set; }
     }
 }

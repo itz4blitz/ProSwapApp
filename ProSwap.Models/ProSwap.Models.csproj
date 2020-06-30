@@ -47,16 +47,22 @@
     <Compile Include="Comment\CommentListItem.cs" />
     <Compile Include="Comment\CommentCreate.cs" />
     <Compile Include="Game\GameCreate.cs" />
+    <Compile Include="Game\GameDetail.cs" />
+    <Compile Include="Game\GameEdit.cs" />
     <Compile Include="Game\GameListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Threads\ThreadEdit.cs" />
-    <Compile Include="Threads\ThreadCreate.cs" />
-    <Compile Include="Threads\ThreadDetail.cs" />
-    <Compile Include="Threads\ThreadListItem.cs" />
+    <Compile Include="Offer\OfferEdit.cs" />
+    <Compile Include="Offer\OfferCreate.cs" />
+    <Compile Include="Offer\OfferDetail.cs" />
+    <Compile Include="Offer\OfferListItem.cs" />
+    <Compile Include="Transaction\TransactionCreate.cs" />
+    <Compile Include="Transaction\TransactionListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProSwap.Models
 {
-    public class ThreadListItem
+    public class OfferListeItem
     {
         [DisplayName("Seller: ")]
         public Guid OwnerID { get; set; }
@@ -17,6 +17,6 @@ namespace ProSwap.Models
         public DateTimeOffset? LastModifiedOn { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
-        public object ThreadID { get; set; }
+        public object OfferId { get; set; }
     }
 }

@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ProSwap.Data
 {
-    public class Threads
+    public class Offer
     {
         [Key]
-        public int ThreadID { get; set; }
+        public int OfferId { get; set; }
         [Required]
-        public Guid OwnerID { get; set; }
+        public Guid OwnerId { get; set; }
         [Required]
         [MinLength(10, ErrorMessage ="You must enter at least 10 characters for the title.")]
         public string Title { get; set; }
@@ -22,6 +22,5 @@ namespace ProSwap.Data
         [Required]
         public DateTimeOffset CreatedUTC { get; set; }
         public DateTimeOffset? ModifiedUTC { get; set; }
-
     }
 }

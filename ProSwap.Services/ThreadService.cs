@@ -22,9 +22,9 @@ namespace ProSwap.Services
         public bool CreateThread(ThreadCreate model)
         {
             var entity =
-                new Threads()
+                new Offer()
                 {
-                    OwnerID = _userId,
+                    OwnerId = _userId,
                     Title = model.Title,
                     Content = model.Content,
                     CreatedUTC = DateTimeOffset.Now
@@ -32,24 +32,24 @@ namespace ProSwap.Services
 
             using (var ctx = new ApplicationDbContext())
             {
-                ctx.Thread.Add(entity);
+                ctx.Offer.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        public IEnumerable<ThreadListItem> GetAllThreads()
+        public IEnumerable<ThreadListItem> GetAllOffers()
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                 ctx
-                    .Thread
-                    .Where(e => e.OwnerID == _userId)
+                    .Offer
+                    .Where(e => e.OwnerId == _userId)
                     .Select(
                         e =>
                             new ThreadListItem
                             {
-                                ThreadID = e.ThreadID,
+                                OwnerID = e.OwnerId,
                                 Title = e.Title,
                                 CreatedOn = e.CreatedUTC
                             }
@@ -59,18 +59,18 @@ namespace ProSwap.Services
             }
         }
 
-        public ThreadDetail GetThreadById(int id)
+        public ThreadDetail GetOfferById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Thread
-                        .Single(e => e.ThreadID == id && e.OwnerID == _userId);
+                        .Offer
+                        .Single(e => e.OfferId == id && e.OwnerId == _userId);
                 return
                     new ThreadDetail
                     {
-                        ThreadID = entity.ThreadID,
+                        ThreadID = entity.OfferId,
                         Title = entity.Title,
                         Content = entity.Content,
                         CreatedUTC = entity.CreatedUTC,
@@ -79,14 +79,14 @@ namespace ProSwap.Services
             }
         }
 
-        public bool UpdateThread(ThreadEdit model)
+        public bool UpdateOffer(ThreadEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Thread
-                        .Single(e => e.ThreadID == model.ThreadID && e.OwnerID == _userId);
+                        .Offer
+                        .Single(e => e.OfferId == model.ThreadID && e.OwnerId == _userId);
                 entity.Title = model.Title;
                 entity.Content = model.Content;
                 entity.ModifiedUTC = DateTimeOffset.UtcNow;
@@ -95,16 +95,16 @@ namespace ProSwap.Services
             }
         }
 
-        public bool DeleteThread (int threadID)
+        public bool DeleteOffer(int offerId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
-                        .Thread
-                        .Single(e => e.ThreadID == threadID && e.OwnerID == _userId);
+                        .Offer
+                        .Single(e => e.OfferId == offerId && e.OwnerId == _userId);
 
-                ctx.Thread.Remove(entity);
+                ctx.Offer.Remove(entity);
 
                 return ctx.SaveChanges() == 1;
             }

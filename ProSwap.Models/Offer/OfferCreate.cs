@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProSwap.Models.Threads
+namespace ProSwap.Models.Offer
 {
-    public class ThreadCreate
+    public class OfferCreate
     {
         [Required]
         [MinLength(10, ErrorMessage = "Please enter at least 2 characters.")]

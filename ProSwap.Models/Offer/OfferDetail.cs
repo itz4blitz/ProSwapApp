@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProSwap.Models.Threads
+namespace ProSwap.Models.Offer
 {
-    public class ThreadDetail
+    public class OfferDetail
     {
         public int ThreadID { get; set; }
         public string Title { get; set; }

@@ -26,7 +26,7 @@ namespace ProSwap.API.Controllers
             public IHttpActionResult Get()
             {
                 ThreadService threadService = CreateThreadService();
-                var threads = threadService.GetAllThreads();
+                var threads = threadService.GetAllOffers();
                 return Ok(threads);
             }
 
@@ -47,7 +47,7 @@ namespace ProSwap.API.Controllers
             public IHttpActionResult Get(int id)
             {
                 ThreadService threadService = CreateThreadService();
-                var thread = threadService.GetThreadById(id);
+                var thread = threadService.GetOfferById(id);
                 return Ok(thread);
             }
 
@@ -58,7 +58,7 @@ namespace ProSwap.API.Controllers
 
                 var service = CreateThreadService();
 
-                if (!service.UpdateThread(thread))
+                if (!service.UpdateOffer(thread))
                     return InternalServerError();
 
                 return Ok();
@@ -68,7 +68,7 @@ namespace ProSwap.API.Controllers
             {
                 var service = CreateThreadService();
 
-                if (!service.DeleteThread(id))
+                if (!service.DeleteOffer(id))
                     return InternalServerError();
 
                 return Ok();

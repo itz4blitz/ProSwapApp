@@ -32,5 +32,58 @@ namespace ProSwap.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public IEnumerable<GameListItem> GetGames()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Game
+                        //  .Where(e => e.OwnerId == _userId)
+                        .Select(
+                            e =>
+                                new GameListItem
+                                {
+                                    GameId = e.GameId,
+                                    Name = e.Name
+                                }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+        public GameDetail GetGameById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Game
+                        .Single(e => e.GameId == id);
+                return
+                    new GameDetail
+                    {
+                        GameId = entity.GameId,
+                        Name = entity.Name
+                    };
+            }
+        }
+
+        public bool UpdateGame(GameEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Game
+                        .Single(e => e.GameId == model.GameId);
+                entity.Name = model.Name;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProSwap.Models
 {
-    public class ThreadEdit
+    public class OfferEdit
     {
-        public int ThreadID { get; set; }
+        public int OfferId { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
     }

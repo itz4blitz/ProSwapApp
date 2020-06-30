@@ -29,7 +29,7 @@ namespace ProSwap.Data
         {
         }
 
-        public DbSet<Threads> Thread { get; set; }
+        public DbSet<Offer> Offer { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Game> Game { get; set; }
 
