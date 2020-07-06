@@ -87,6 +87,23 @@
     <Compile Include="Comment.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202006202346088_InitialCreate.cs" />
+    <Compile Include="Migrations\202006202346088_InitialCreate.Designer.cs">
+      <DependentUpon>202006202346088_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007060121448_InitialMigration.cs" />
+    <Compile Include="Migrations\202007060121448_InitialMigration.Designer.cs">
+      <DependentUpon>202007060121448_InitialMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007060123104_SecondMigration.cs" />
+    <Compile Include="Migrations\202007060123104_SecondMigration.Designer.cs">
+      <DependentUpon>202007060123104_SecondMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202007060127575_DBNotDisplayingOfferModel.cs" />
+    <Compile Include="Migrations\202007060127575_DBNotDisplayingOfferModel.Designer.cs">
+      <DependentUpon>202007060127575_DBNotDisplayingOfferModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Offer.cs" />
     <Compile Include="Transaction.cs" />
@@ -94,6 +111,20 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202006202346088_InitialCreate.resx">
+      <DependentUpon>202006202346088_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007060121448_InitialMigration.resx">
+      <DependentUpon>202007060121448_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007060123104_SecondMigration.resx">
+      <DependentUpon>202007060123104_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007060127575_DBNotDisplayingOfferModel.resx">
+      <DependentUpon>202007060127575_DBNotDisplayingOfferModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

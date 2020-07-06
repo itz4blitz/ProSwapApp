@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
+using ProSwap.Data;
 using ProSwap.Models;
-using ProSwap.Models.Threads;
+using ProSwap.Models.Offer;
 using ProSwap.Services;
 using System;
 using System.Collections.Generic;
@@ -11,33 +12,33 @@ using System.Web.Http;
 
 namespace ProSwap.API.Controllers
 {
-    public class ThreadsController : ApiController
+    public class OffersController : ApiController
     {
         [Authorize]
-        public class ThreadController : ApiController
+        public class OfferController : ApiController
         {
-            private ThreadService CreateThreadService()
+            private OfferService CreateOfferService()
             {
                 var userId = Guid.Parse(User.Identity.GetUserId());
-                var threadService = new ThreadService(userId);
-                return threadService;
+                var offerService = new OfferService(userId);
+                return offerService;
             }
 
             public IHttpActionResult Get()
             {
-                ThreadService threadService = CreateThreadService();
-                var threads = threadService.GetAllOffers();
-                return Ok(threads);
+                OfferService offerService = CreateOfferService();
+                var offers = offerService.GetAllOffers();
+                return Ok(offers);
             }
 
-            public IHttpActionResult Post(ThreadCreate thread)
+            public IHttpActionResult Post(OfferCreate offer)
             {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                var service = CreateThreadService();
+                var service = CreateOfferService();
 
-                if (!service.CreateThread(thread))
+                if (!service.CreateOffer(offer))
                     return InternalServerError();
 
                 return Ok();
@@ -46,19 +47,19 @@ namespace ProSwap.API.Controllers
             //GET /Thread/{id}
             public IHttpActionResult Get(int id)
             {
-                ThreadService threadService = CreateThreadService();
-                var thread = threadService.GetOfferById(id);
-                return Ok(thread);
+                OfferService offerService = CreateOfferService();
+                var offer = offerService.GetOfferById(id);
+                return Ok(offer);
             }
 
-            public IHttpActionResult Put(ThreadEdit thread)
+            public IHttpActionResult Put(OfferEdit offer)
             {
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                var service = CreateThreadService();
+                var service = CreateOfferService();
 
-                if (!service.UpdateOffer(thread))
+                if (!service.UpdateOffer(offer))
                     return InternalServerError();
 
                 return Ok();
@@ -66,7 +67,7 @@ namespace ProSwap.API.Controllers
 
             public IHttpActionResult Delete(int id)
             {
-                var service = CreateThreadService();
+                var service = CreateOfferService();
 
                 if (!service.DeleteOffer(id))
                     return InternalServerError();

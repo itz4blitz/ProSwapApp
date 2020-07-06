@@ -57,7 +57,7 @@
     <Compile Include="CommentService.cs" />
     <Compile Include="GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThreadService.cs" />
+    <Compile Include="OfferService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProSwap.Data\ProSwap.Data.csproj">

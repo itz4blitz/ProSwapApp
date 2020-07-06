@@ -1,6 +1,6 @@
 ﻿using ProSwap.Data;
 using ProSwap.Models;
-using ProSwap.Models.Threads;
+using ProSwap.Models.Offer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace ProSwap.Services
 {
-    public class ThreadService
+    public class OfferService
     {
         private readonly Guid _userId;
 
-        public ThreadService(Guid userId)
+        public OfferService(Guid userId)
         {
             _userId = userId;
         }
 
-        public bool CreateThread(ThreadCreate model)
+        public bool CreateOffer(OfferCreate model)
         {
             var entity =
                 new Offer()
@@ -37,7 +37,7 @@ namespace ProSwap.Services
             }
         }
 
-        public IEnumerable<ThreadListItem> GetAllOffers()
+        public IEnumerable<OfferListeItem> GetAllOffers()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -47,7 +47,7 @@ namespace ProSwap.Services
                     .Where(e => e.OwnerId == _userId)
                     .Select(
                         e =>
-                            new ThreadListItem
+                            new OfferListeItem
                             {
                                 OwnerID = e.OwnerId,
                                 Title = e.Title,
@@ -59,7 +59,7 @@ namespace ProSwap.Services
             }
         }
 
-        public ThreadDetail GetOfferById(int id)
+        public OfferDetail GetOfferById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -68,7 +68,7 @@ namespace ProSwap.Services
                         .Offer
                         .Single(e => e.OfferId == id && e.OwnerId == _userId);
                 return
-                    new ThreadDetail
+                    new OfferDetail
                     {
                         ThreadID = entity.OfferId,
                         Title = entity.Title,
@@ -79,14 +79,14 @@ namespace ProSwap.Services
             }
         }
 
-        public bool UpdateOffer(ThreadEdit model)
+        public bool UpdateOffer(OfferEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Offer
-                        .Single(e => e.OfferId == model.ThreadID && e.OwnerId == _userId);
+                        .Single(e => e.OfferId == model.OfferId && e.OwnerId == _userId);
                 entity.Title = model.Title;
                 entity.Content = model.Content;
                 entity.ModifiedUTC = DateTimeOffset.UtcNow;

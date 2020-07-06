@@ -231,7 +231,7 @@
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ThreadsController.cs" />
+    <Compile Include="Controllers\OffersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

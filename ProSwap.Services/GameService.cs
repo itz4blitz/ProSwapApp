@@ -22,7 +22,7 @@ namespace ProSwap.Services
             var entity =
                 new Game()
                 {
-                    GameId = model.GameId,
+                    GameId = model.GameID,
                     Name = model.Name
                 };
 
