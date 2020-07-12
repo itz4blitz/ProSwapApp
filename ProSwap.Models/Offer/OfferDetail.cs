@@ -9,6 +9,7 @@ namespace ProSwap.Models.Offer
 {
     public class OfferDetail
     {
+        public int OfferId { get; set; }
         public int ThreadID { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }

@@ -14,6 +14,10 @@ namespace ProSwap.API.Controllers
 {
     public class OffersController : ApiController
     {
+        Offer[] offer = new Offer[]
+{
+            new Offer {}
+};
         [Authorize]
         public class OfferController : ApiController
         {

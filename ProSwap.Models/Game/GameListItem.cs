@@ -9,7 +9,6 @@ namespace ProSwap.Models.Game
 {
     public class GameListItem
     {
-        public int GameId { get; set; }
         public string Name { get; set; }
     }
 }

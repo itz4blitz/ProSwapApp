@@ -25,6 +25,7 @@ namespace ProSwap.Services
                 new Offer()
                 {
                     OwnerId = _userId,
+                    GameId = model.GameId,
                     Title = model.Title,
                     Content = model.Content,
                     CreatedUTC = DateTimeOffset.Now

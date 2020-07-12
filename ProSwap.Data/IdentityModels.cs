@@ -13,6 +13,7 @@ namespace ProSwap.Data
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        public string UserRole { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -29,6 +30,10 @@ namespace ProSwap.Data
         {
         }
 
+        public static ApplicationDbContext Create()
+        {
+            return new ApplicationDbContext();
+        }
         public DbSet<Offer> Offer { get; set; }
         public DbSet<Comment> Comment { get; set; }
         public DbSet<Game> Game { get; set; }
@@ -43,12 +48,18 @@ namespace ProSwap.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            modelBuilder.Entity<Game>()
+                .HasMany(j => j.Offers)
+                .WithRequired(e => e.Game)
+                .HasForeignKey(i => i.Game)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Offer>();
+                //need to add
+                
         }
 
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
 
         public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
         {

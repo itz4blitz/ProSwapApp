@@ -22,7 +22,6 @@ namespace ProSwap.Services
             var entity =
                 new Game()
                 {
-                    GameId = model.GameID,
                     Name = model.Name
                 };
 
@@ -45,7 +44,6 @@ namespace ProSwap.Services
                             e =>
                                 new GameListItem
                                 {
-                                    GameId = e.GameId,
                                     Name = e.Name
                                 }
                         );
@@ -65,7 +63,6 @@ namespace ProSwap.Services
                 return
                     new GameDetail
                     {
-                        GameId = entity.GameId,
                         Name = entity.Name
                     };
             }
@@ -78,7 +75,7 @@ namespace ProSwap.Services
                 var entity =
                     ctx
                         .Game
-                        .Single(e => e.GameId == model.GameId);
+                        .Single(e => e.Name == model.Name);
                 entity.Name = model.Name;
 
                 return ctx.SaveChanges() == 1;
